@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Detection Result</h2>
+{% if accident %}
+<p style="color: red;">Accident Detected! Alert has been sent to emergency services.</p>
+{% else %}
+<p style="color: green;">No accident detected.</p>
+{% endif %}
+<img src="{{ url_for('static', filename='results/' + result_image) }}" alt="Result">
+<a href="{{ url_for('upload') }}">Upload Another</a>
+{% endblock %}

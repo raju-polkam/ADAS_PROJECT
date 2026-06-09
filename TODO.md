@@ -1,0 +1,5 @@
+- [x] Modify detect_accident function in app.py to sample multiple frames (e.g., 50) from videos instead of just the first frame
+- [x] If any sampled frame detects an accident, mark the video as having an accident
+- [x] Keep image detection logic unchanged
+- [x] Upgrade to YOLOv11 for better accuracy
+- [ ] Test the changes with a sample video upload

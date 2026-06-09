@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Upload Image/Video for Accident Detection</h2>
+<form method="post" enctype="multipart/form-data" id="uploadForm">
+    <label for="file">Select File:</label>
+    <input type="file" id="file" name="file" accept="image/*,video/*" required>
+    <input type="hidden" id="location" name="location">
+    <button type="submit">Upload and Detect</button>
+</form>
+
+<h3>Or Capture from Camera</h3>
+<video id="video" width="320" height="240" autoplay></video>
+<canvas id="canvas" width="320" height="240" style="display:none;"></canvas>
+<button id="startCamera">Start Camera</button>
+<button id="capture" style="display:none;">Capture</button>
+<button id="stopCamera" style="display:none;">Stop Camera</button>
+<label><input type="checkbox" id="liveDetection"> Enable Live Detection</label>
+<label><input type="checkbox" id="liveVideo"> Enable Live Video Mode</label>
+<p id="status"></p>
+
+<script>
+    navigator.geolocation.getCurrentPosition(function(position) {
+        document.getElementById('location').value = position.coords.latitude + ',' + position.coords.longitude;
+    });
+</script>
+{% endblock %}
